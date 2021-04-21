@@ -43,7 +43,7 @@ import edu.eur.absa.model.Word;
  */
 public class SkeletalOntology implements IOntology {
 
-	public final String NS = "http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/RestaurantOntologyBase";
+	public final String NS = "http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base";
 	
 	public final String URI_AspectMention = NS + "#AspectMention";
 	public final String URI_SentimentMention = NS + "#SentimentMention";
@@ -60,13 +60,15 @@ public class SkeletalOntology implements IOntology {
 	public final String URI_EntityMention = NS +"#EntityMention";
 	public final String URI_PropertyMention = NS + "#PropertyMention"; 
 	public final String URI_ActionMention = NS + "#ActionMention";
+	public final String URI_ModifierMention = NS + "#ModifierMention";
 	public final String URI_GenericPositiveAction = NS +"#GenericPositiveAction";
 	public final String URI_GenericNegativeAction = NS +"#GenericNegativeAction";
 	public final String URI_GenericPositiveProperty = NS + "#GenericPositiveProperty";
 	public final String URI_GenericNegativeProperty = NS + "#GenericNegativeProperty";
 	public final String URI_GenericPositiveEntity = NS + "#GenericPositiveEntity";
 	public final String URI_GenericNegativeEntity = NS + "#GenericNegativeEntity";
-	
+	public final String URI_GenericPositiveModifier = NS + "#GenericPositiveModifier";
+	public final String URI_GenericNegativeModifier = NS + "#GenericNegativeModifier";
 
 	private OntModel ontology = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RULE_INF);
 
@@ -85,6 +87,7 @@ public class SkeletalOntology implements IOntology {
 		}
 		/* Read the RDF/XML file */
 		ontology.read(in, null);
+
 	}
 
 	/**
@@ -314,8 +317,7 @@ public class SkeletalOntology implements IOntology {
 			literal = ontology.createLiteral(lemma);
 		}
 		/* Get all statements with the given property and object. */
-		StmtIterator iter = ontology
-				.listStatements(new SimpleSelector(null, ontology.getProperty(annotationType), literal));
+		StmtIterator iter = ontology.listStatements(new SimpleSelector(null, ontology.getProperty(annotationType), literal));
 
 		/* Retain only the classes that are subclasses of the superclass. */
 		HashSet<String> ontoConcepts = new HashSet<String>();
@@ -345,14 +347,14 @@ public class SkeletalOntology implements IOntology {
 	 * @param lemma
 	 * @return the URI of the action, null is empty
 	 */
-	/*public String getLexicalizedAction(String lemma) {
+	public String getLexicalizedAction(String lemma) {
 		HashSet<String> res = getLexicalizedConcepts(this.URI_ActionMention, lemma);
 		if (res.isEmpty()) {
 			return null;
 		} else {
 			return res.iterator().next();
 		}
-	}*/
+	}
 
 	/**
 	 * Get (the) one subclass of EntityMention with this lemma. If there are
@@ -437,7 +439,7 @@ public class SkeletalOntology implements IOntology {
 	 */
 	public HashSet<String> getSuperclasses(String classURI) {
 		if (!superclasses.containsKey(classURI)) {
-			superclasses.put(classURI, new HashSet<>());
+			superclasses.put(classURI, new HashSet<String>());
 			superclasses.get(classURI).addAll(getObjects(classURI, "http://www.w3.org/2000/01/rdf-schema#subClassOf"));
 		}
 		return superclasses.get(classURI);

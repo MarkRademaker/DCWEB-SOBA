@@ -2,8 +2,11 @@ package hierarchicalClustering;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,7 +15,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.TreeMap;
-import javafx. util. Pair;
+import javafx.util.Pair;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.deeplearning4j.models.embeddings.loader.WordVectorSerializer;
@@ -28,8 +31,8 @@ import edu.eur.absa.Framework;
 /**
 /*
  * Programmed by Shephalika Shekhar
- * Modified by Joanne Tjan, Ruben Eschauzier and Fenna ten Haaf
- * Class for Kmeans Clustering implementation
+ * Modified by Joanne Tjan, Ruben Eschauzier, Fenna ten Haaf and David van Ommen
+ * 
  * 
  **/
 public class clusteringAlgorithm{
@@ -52,7 +55,8 @@ public class clusteringAlgorithm{
 	private Map<String, double[]> centroids2 = new HashMap<>();
 	private Map<double[], String> clusters2 = new HashMap<>();
 	private Map<String, String[]> finalclusters2 = new HashMap<>(); 
-
+	private Map<String, double[]> word_vec_PT = new HashMap<>(); 
+	private Map<String, Map<double[], double[]>> finalMap;
 	private final int numberClusters; 
 	private final int maxIterations; 
 	private final String filename;
@@ -61,13 +65,15 @@ public class clusteringAlgorithm{
 	private final String[] classes;
 	private final String method;
 
-	public clusteringAlgorithm(String nameoffile, int k, int x, String[] classes, String method) {
+	public clusteringAlgorithm(String nameoffile, int k, int x, String[] classes, String method) throws ClassNotFoundException, IOException {
 		this.filename = nameoffile;
 		this.numberClusters = k;
 		this.termspercluster = new int[k];
 		this.maxIterations = x;
 		this.classes = classes;
 		this.method = method;
+		readFile(filename); 
+		initialization();
 		//initialize these parameters String textfile, int numberMentionClasses, int maxiterations
 	}
 	
@@ -102,28 +108,47 @@ public class clusteringAlgorithm{
 	
 	/**
 	 * Initialize the required variables
+	 * @throws IOException 
+	 * @throws ClassNotFoundException 
 	 */
-	public void initialization() {
-		//Second step
-		File Model = new File(Framework.LARGEDATA_PATH+ "w2v_yelp.bin");// Make sure w2v_ryelp.bin is in the large data folder! if error occurs here, change w2v_yelp.bin to filename of w2c model
-		org.deeplearning4j.models.word2vec.Word2Vec word2vec = WordVectorSerializer.readWord2VecModel(Model);
+	public void initialization() throws IOException, ClassNotFoundException {
 
-		for (Map.Entry<String, String> entry : MentionsWords.entrySet()) { // Per aspectmention, find the closest subcluster (not sure it is already stored)
-			double[] tempwordvector = word2vec.getWordVector(entry.getKey());
-			//			System.out.println("Aspectmention word: "+entry.getKey());
-			//			System.out.println("With similarity : " + Arrays.toString(tempwordvector));
 
+		File toRead_terms=new File(Framework.OUTPUT_PATH + "finalMap2");
+		FileInputStream fis_terms=new FileInputStream(toRead_terms);
+		ObjectInputStream ois_terms =new ObjectInputStream(fis_terms);
+		finalMap =(HashMap<String, Map<double[], double[]>>)ois_terms.readObject();
+		System.out.println(finalMap.get("flavors"));
+		ois_terms.close();
+		fis_terms.close();
+		for(Map.Entry<String, Map<double[], double[]>> temp : finalMap.entrySet()) {
+			Map.Entry<double[], double[]> temp2 = temp.getValue().entrySet().iterator().next(); 
+			
+			word_vec_PT.put(temp.getKey(), temp2.getKey()); 
+
+		}
+		
+		for (Map.Entry<String, String> entry : MentionsWords.entrySet()) {
+			String menWord = entry.getKey(); 
+			// Per aspectmention, find the closest subcluster (not sure it is already stored)
+			
+			
+			double[] tempwordvector = word_vec_PT.get(menWord); 
 			term_wordvector.put(entry.getKey(), tempwordvector);
 			wordvector_term.put(tempwordvector, entry.getKey());
 
 			wordvectors.add(tempwordvector);
+	
 			terms.add(entry.getKey());
 		}
 
 		for (String mentionclasses : classes ) {
-			double[] wordvector = word2vec.getWordVector(mentionclasses);
+			if(word_vec_PT.containsKey(mentionclasses)) {
+	
+			double[] wordvector = word_vec_PT.get(mentionclasses);
 			class_wordvector.put(mentionclasses, wordvector);
 			wordvector_class.put(wordvector, mentionclasses);
+			}
 		}
 	}
 
@@ -165,7 +190,6 @@ public class clusteringAlgorithm{
 	 * Implementation of assigning terms to the mentionclass with the highest similarity
 	 */
 	public void implementSimilarities() {
-		//Alternative method instead of kmeans
 		for (String mentionclasses : classes) {
 			centroids2.put(mentionclasses, class_wordvector.get(mentionclasses));
 		}
@@ -476,6 +500,7 @@ public class clusteringAlgorithm{
 			String[] temporary_words = new String[termspercluster[x]];
 			int count = 0;
 			for (Map.Entry<double[], String > entry : finalclusters2.entrySet()) {
+		
 				if (entry.getValue() == classes[x]) {
 					temporary_words[count] = w2v_aspects.get(entry.getKey());
 					count++;
@@ -546,11 +571,14 @@ public class clusteringAlgorithm{
 	public TreeMap<Double, String> getRankinglist(String term, Map<String,double[]> map) {// ranking for one term
 		// term = woord, map = term with its corresponding wordvector
 		TreeMap<Double, String> ranklist= new TreeMap<Double,String>();
+		System.out.println(term);
 		double[] termvector = map.get(term);
 		for (String mentionclasses : classes) {
+			if(centroids2.get(mentionclasses) != null) {
 			double[] classvector = centroids2.get(mentionclasses);
 			double distance = getCosineSimilarity(termvector,classvector);
 			ranklist.put(distance, mentionclasses);
+			}
 		}
 		return ranklist;
 	}
@@ -570,7 +598,7 @@ public class clusteringAlgorithm{
 		List<Pair<String,Map<String,List<String>>>> pairList= new ArrayList<Pair<String,Map<String,List<String>>>>();
 		
 		for (Map.Entry<String, String[]> entry : Clusters.entrySet()) {
-			HierarichalClusterAlgorithm HCA = new HierarichalClusterAlgorithm(Framework.LARGEDATA_PATH + "yelp_wordvec",  Framework.OUTPUT_PATH + name, entry.getValue()); //if error occurs at this line, change pathfile to the wanted file (not sure which file needed)
+			HierarichalClusterAlgorithm HCA = new HierarichalClusterAlgorithm(Framework.OUTPUT_PATH + "finalMap2",  Framework.OUTPUT_PATH + name, entry.getValue()); //if error occurs at this line, change pathfile to the wanted file (not sure which file needed)
 			ClusteringAlgorithm clustering_algorithm = new DefaultClusteringAlgorithm();
 			
 			String[] terms = entry.getValue();
@@ -628,7 +656,7 @@ public class clusteringAlgorithm{
 		Map<String, double[]> aspectWordvector = test1.getAspectWordVectors();
 
 		for (Map.Entry<String, String[]> entry : Clusters.entrySet()) {
-			HierarichalClusterAlgorithm HCA = new HierarichalClusterAlgorithm(Framework.EXTERNALDATA_PATH + "yelp_wordvec",  Framework.OUTPUT_PATH + name, entry.getValue()); //if error occurs at this line, change pathfile to the wanted file (not sure which file needed)
+			HierarichalClusterAlgorithm HCA = new HierarichalClusterAlgorithm(Framework.OUTPUT_PATH + "finalMap2",  Framework.OUTPUT_PATH + name, entry.getValue()); //if error occurs at this line, change pathfile to the wanted file (not sure which file needed)
 			ClusteringAlgorithm clustering_algorithm = new DefaultClusteringAlgorithm();
 
 			String[] terms = entry.getValue();

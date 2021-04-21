@@ -23,20 +23,20 @@ import termSelector.TermSelectionAlgo;
 public class MainOntologyBuilder {
 	
 	public static void main(String[] args) throws ClassNotFoundException, JSONException, IOException, Exception { //IllegalSpanException
-
+		
 		/* RESTAURANT DOMAIN */
-
-		/* Start with the skeletal ontology. */
-		SkeletalOntology base = new SkeletalOntology(Framework.EXTERNALDATA_PATH + "RestaurantOntologySeminar6Base_version2_2020.owl"); // Onze is: RestaurantOntologySeminar6Base2020.owl	
+		
+		SkeletalOntology base = new SkeletalOntology(Framework.EXTERNALDATA_PATH + "Seminar2021Base.owl"); // Onze is: RestaurantOntologySeminar6Base2020.owl	
 		HashMap<String, HashSet<String>> aspectCategories = new HashMap<String, HashSet<String>>();
 		
-		/*create HashMap aspectCategories that maps each aspect to its relevant categories */
+		//create HashMap aspectCategories that maps each aspect to its relevant categories 
+	
 		HashSet<String> restaurant = new HashSet<String>();
 		restaurant.add("general");
 		restaurant.add("prices");
 		restaurant.add("miscellaneous");
 		aspectCategories.put("restaurant", restaurant);
-
+		
 		HashSet<String> ambience = new HashSet<String>();  
 		ambience.add("general");
 		aspectCategories.put("ambience", ambience);
@@ -55,26 +55,25 @@ public class MainOntologyBuilder {
 		sustenance.add("style&options");
 		aspectCategories.put("sustenance", sustenance);
 
-		/* Set the domain. */
 		String domain = "restaurant";
-
-		/* Initialise the semi-automatic ontology builder. *///
+	
 		OntologyBuilder build = new OntologyBuilder(base, aspectCategories, domain);
-
-		build.save("TestSkeletalOntology2020.owl");
-		
+		System.out.println("saving ontology...");
+		build.save("TestSkeletalOntology2021.owl");
+		System.out.println("performing term selection...");
 		// Perform the termselection
 		build.getTerms(); 
-		
+		System.out.println("adding sentiment words...");
 		//Now add the sentiment words in a kind of hierarchy
 		build.addSentimentWords(); 
-		build.save("ontoWithSentimentWords.owl");
-		
+		System.out.println("saving ontology...");
+		build.save("ontoWithSentimentWords2021.owl");
+		System.out.println("getting hierarchical clusters...");
 		//Next is to add the hierarchy
 		build.getHierarchicalClusters();
-		build.save("finalOntology.owl");
-		 
+		System.out.println("saving final ontology...");
+		build.save("finalOntology2021.owl");	
 		}
-	
 }
+
 	

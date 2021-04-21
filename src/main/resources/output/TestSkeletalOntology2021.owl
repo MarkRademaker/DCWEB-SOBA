@@ -1,0 +1,904 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base"/>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesNegativeProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesPropertyMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityNegativeAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityActionMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesPositiveModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePositiveAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceActionMention"/>
+    </rdfs:subClassOf>
+    <sense>service#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#DrinksActionMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceActionMention"/>
+    </rdfs:subClassOf>
+    <aspect>QUALITY</aspect>
+    <aspect>PRICES</aspect>
+    <aspect>STYLE&amp;OPTIONS</aspect>
+    <sense>drinks#noun#1</sense>
+    <lex>drinks</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#RestaurantMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+    <aspect>RESTAURANT#PRICES</aspect>
+    <aspect>RESTAURANT#GENERAL</aspect>
+    <sense>restaurant#noun#1</sense>
+    <lex>restaurant</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePropertyMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceMention"/>
+    </rdfs:subClassOf>
+    <sense>ambience#noun#1</sense>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationNegativeAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationActionMention"/>
+    </rdfs:subClassOf>
+    <sense>location#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsNegativeModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePropertyMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceMention"/>
+    </rdfs:subClassOf>
+    <sense>service#noun#1</sense>
+    <lex>service</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#FoodModifierMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceModifierMention"/>
+    </rdfs:subClassOf>
+    <aspect>QUALITY</aspect>
+    <aspect>PRICES</aspect>
+    <aspect>STYLE&amp;OPTIONS</aspect>
+    <sense>food#noun#1</sense>
+    <lex>food</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsPositiveProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsPropertyMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePositiveEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceMention"/>
+    </rdfs:subClassOf>
+    <sense>ambience#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceModifierMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceMention"/>
+    </rdfs:subClassOf>
+    <sense>ambience#noun#1</sense>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Excellent">
+    <lex>exceptional</lex>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveProperty"/>
+    </rdfs:subClassOf>
+    <sense>excellent#adjective#1</sense>
+    <lex>excellent</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+    <aspect>SERVICE#GENERAL</aspect>
+    <sense>service#noun#1</sense>
+    <lex>service</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsPositiveAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsActionMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#FoodActionMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceActionMention"/>
+    </rdfs:subClassOf>
+    <aspect>QUALITY</aspect>
+    <aspect>PRICES</aspect>
+    <aspect>STYLE&amp;OPTIONS</aspect>
+    <sense>food#noun#1</sense>
+    <lex>food</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePositiveModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePropertyMention"/>
+    <sense>service#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+    <aspect>AMBIENCE#GENERAL</aspect>
+    <sense>ambience#noun#1</sense>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesNegativeAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesActionMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceNegativeProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePropertyMention"/>
+    <sense>service#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ExperienceModifierMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    </rdfs:subClassOf>
+    <aspect>RESTAURANT#MISCELLANEOUS</aspect>
+    <sense>experience#noun#3</sense>
+    <lex>experience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationActionMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationMention"/>
+    </rdfs:subClassOf>
+    <sense>location#noun#1</sense>
+    <lex>location</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#FoodPropertyMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePropertyMention"/>
+    </rdfs:subClassOf>
+    <aspect>QUALITY</aspect>
+    <aspect>PRICES</aspect>
+    <aspect>STYLE&amp;OPTIONS</aspect>
+    <sense>food#noun#1</sense>
+    <lex>food</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Poorly">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeProperty"/>
+    <sense>poorly#adjective#1</sense>
+    <lex>poorly</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityPropertyMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityMention"/>
+    </rdfs:subClassOf>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Neutral">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Sentiment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+    <aspect>SUSTENANCE#QUALITY</aspect>
+    <lex>quality</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesPositiveAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesActionMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceNegativeEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceMention"/>
+    </rdfs:subClassOf>
+    <sense>sustenance#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityNegativeProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityPropertyMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ExperienceActionMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    </rdfs:subClassOf>
+    <aspect>RESTAURANT#MISCELLANEOUS</aspect>
+    <sense>experience#noun#3</sense>
+    <lex>experience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityPositiveProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityPropertyMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Expensive">
+    <lex>priced</lex>
+    <lex>pricey</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeProperty"/>
+    <sense>expensive#adjective#1</sense>
+    <lex>expensive</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityNegativeModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#DrinksMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceMention"/>
+    </rdfs:subClassOf>
+    <aspect>QUALITY</aspect>
+    <aspect>PRICES</aspect>
+    <aspect>STYLE&amp;OPTIONS</aspect>
+    <sense>drinks#noun#1</sense>
+    <lex>drinks</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceNegativeAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceActionMention"/>
+    </rdfs:subClassOf>
+    <sense>service#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceActionMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceMention"/>
+    </rdfs:subClassOf>
+    <sense>sustenance#noun#1</sense>
+    <lex>sustenance</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityPositiveModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Sentiment"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Badly">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeModifier"/>
+    </rdfs:subClassOf>
+    <sense>badly#adverb#1</sense>
+    <lex>badly</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#DrinksPropertyMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePropertyMention"/>
+    </rdfs:subClassOf>
+    <aspect>QUALITY</aspect>
+    <aspect>PRICES</aspect>
+    <aspect>STYLE&amp;OPTIONS</aspect>
+    <sense>drinks#noun#1</sense>
+    <lex>drinks</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePositiveAction">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceActionMention"/>
+    </rdfs:subClassOf>
+    <sense>ambience#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Hate">
+    <lex>dislike</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeAction"/>
+    <sense>hate#verb#1</sense>
+    <lex>hate</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityActionMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityMention"/>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceActionMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceMention"/>
+    <sense>ambience#noun#1</sense>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationNegativeEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationMention"/>
+    </rdfs:subClassOf>
+    <sense>location#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesPositiveProperty">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesPropertyMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesNegativeModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Good">
+    <lex>nice</lex>
+    <lex>decent</lex>
+    <lex>terrific</lex>
+    <lex>fine</lex>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveProperty"/>
+    </rdfs:subClassOf>
+    <sense>good#adjective#1</sense>
+    <lex>good</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsModifierMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsMention"/>
+    </rdfs:subClassOf>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesModifierMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesMention"/>
+    </rdfs:subClassOf>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsNegativeProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsPropertyMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+    <aspect>SUSTENANCE#QUALITY</aspect>
+    <aspect>SUSTENANCE#PRICES</aspect>
+    <aspect>SUSTENANCE#STYLE&amp;OPTIONS</aspect>
+    <sense>sustenance#noun#1</sense>
+    <lex>sustenance</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPositiveAction">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationActionMention"/>
+    <sense>location#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePropertyMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceMention"/>
+    <sense>sustenance#noun#1</sense>
+    <lex>sustenance</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesPropertyMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesMention"/>
+    </rdfs:subClassOf>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Mention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Mention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsPositiveModifier">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePositiveEntity">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceMention"/>
+    <sense>sustenance#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityPositiveAction">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityActionMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+    <aspect>RESTAURANT#PRICES</aspect>
+    <aspect>SUSTENANCE#PRICES</aspect>
+    <lex>prices</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationModifierMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationMention"/>
+    </rdfs:subClassOf>
+    <sense>location#noun#1</sense>
+    <lex>location</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityModifierMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityMention"/>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceModifierMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceMention"/>
+    <sense>sustenance#noun#1</sense>
+    <lex>sustenance</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#DrinksModifierMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceModifierMention"/>
+    <aspect>QUALITY</aspect>
+    <aspect>PRICES</aspect>
+    <aspect>STYLE&amp;OPTIONS</aspect>
+    <sense>drinks#noun#1</sense>
+    <lex>drinks</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePositiveEntity">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceMention"/>
+    <sense>service#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceNegativeModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePropertyMention"/>
+    <sense>service#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveEntity">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePositiveProperty">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServicePropertyMention"/>
+    <sense>service#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityNegativeEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Mention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationMention">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    </rdfs:subClassOf>
+    <aspect>LOCATION#GENERAL</aspect>
+    <sense>location#noun#1</sense>
+    <lex>location</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Mention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceNegativeAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceActionMention"/>
+    <sense>ambience#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPropertyMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationMention"/>
+    <sense>location#noun#1</sense>
+    <lex>location</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Well">
+    <lex>pretty</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveModifier"/>
+    <sense>well#adverb#1</sense>
+    <lex>well</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Bad">
+    <lex>terrible</lex>
+    <lex>awful</lex>
+    <lex>horrible</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeProperty"/>
+    <sense>bad#adjective#1</sense>
+    <lex>bad</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Perfectly">
+    <lex>beautifully</lex>
+    <lex>nicely</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveModifier"/>
+    <sense>perfectly#adverb#1</sense>
+    <lex>perfectly</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Enjoy">
+    <lex>enjoyed</lex>
+    <lex>liked</lex>
+    <lex>enjoying</lex>
+    <lex>pleased</lex>
+    <lex>love</lex>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveAction"/>
+    </rdfs:subClassOf>
+    <sense>enjoy#verb#1</sense>
+    <lex>enjoy</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityPositiveEntity">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#QualityMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPositiveModifier">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPropertyMention"/>
+    <sense>location#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Mediocre">
+    <lex>average</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericNegativeProperty"/>
+    <sense>mediocre#adjective#1</sense>
+    <lex>mediocre</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsNegativeEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceNegativeEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceMention"/>
+    <sense>ambience#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Tasty">
+    <lex>yummy</lex>
+    <lex>juicy</lex>
+    <lex>tender</lex>
+    <lex>flavorful</lex>
+    <lex>crispy</lex>
+    <lex>flavored</lex>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePositiveProperty"/>
+    </rdfs:subClassOf>
+    <lex>tasty</lex>
+    <lex>delicious</lex>
+    <sense>tasty#adjective#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveAction">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#FoodMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceMention"/>
+    <aspect>QUALITY</aspect>
+    <aspect>PRICES</aspect>
+    <aspect>STYLE&amp;OPTIONS</aspect>
+    <sense>food#noun#1</sense>
+    <lex>food</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceNegativeModifier">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePropertyMention"/>
+    <sense>sustenance#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePositiveProperty">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePropertyMention"/>
+    <sense>sustenance#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePositiveModifier">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePropertyMention"/>
+    <sense>sustenance#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesActionMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesMention"/>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsNegativeAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsActionMention"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePositiveAction">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceActionMention"/>
+    <sense>sustenance#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceNegativeProperty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenancePropertyMention"/>
+    <sense>sustenance#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesPositiveEntity">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesNegativeEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PricesMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ExperiencePropertyMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    <aspect>RESTAURANT#MISCELLANEOUS</aspect>
+    <sense>experience#noun#3</sense>
+    <lex>experience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Sentiment"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceNegativeModifier">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePropertyMention"/>
+    <sense>ambience#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePositiveProperty">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePropertyMention"/>
+    <sense>ambience#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePositiveModifier">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePropertyMention"/>
+    <sense>ambience#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Great">
+    <lex>fabulous</lex>
+    <lex>incredible</lex>
+    <lex>outstanding</lex>
+    <lex>great</lex>
+    <lex>awesome</lex>
+    <lex>perfect</lex>
+    <sense>great#adjective#1</sense>
+    <lex>fantastic</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveProperty"/>
+    <lex>beautiful</lex>
+    <lex>amazing</lex>
+    <lex>wonderful</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceNegativeAction">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#SustenanceActionMention"/>
+    <sense>sustenance#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsPropertyMention">
+    <lex>style</lex>
+    <lex>options</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#PropertyMention"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsMention"/>
+    </rdfs:subClassOf>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsMention">
+    <lex>style</lex>
+    <lex>options</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    <aspect>SUSTENANCE#STYLE&amp;OPTIONS</aspect>
+    <lex>style&amp;options</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbienceNegativeProperty">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#AmbiencePropertyMention"/>
+    <sense>ambience#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Liked">
+    <lex>likes</lex>
+    <lex>recommended</lex>
+    <lex>appreciated</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#GenericPositiveAction"/>
+    <sense>liked#verb#1</sense>
+    <lex>liked</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsActionMention">
+    <lex>style</lex>
+    <lex>options</lex>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsMention"/>
+    <lex>ambience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceModifierMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ModifierMention"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceMention"/>
+    <sense>service#noun#1</sense>
+    <lex>service</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsPositiveEntity">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Style&amp;optionsMention"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ExperienceMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#EntityMention"/>
+    <aspect>RESTAURANT#MISCELLANEOUS</aspect>
+    <sense>experience#noun#3</sense>
+    <lex>experience</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPositiveProperty">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPropertyMention"/>
+    <sense>location#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceActionMention">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ActionMention"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceMention"/>
+    <sense>service#noun#1</sense>
+    <lex>service</lex>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPositiveEntity">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Positive"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationMention"/>
+    <sense>location#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceNegativeEntity">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#ServiceMention"/>
+    <sense>service#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationNegativeModifier">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPropertyMention"/>
+    <sense>location#noun#1</sense>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationNegativeProperty">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#Negative"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bsc.seminar/ontologies/2020/5/Seminar2021Base#LocationPropertyMention"/>
+    <sense>location#noun#1</sense>
+  </owl:Class>
+</rdf:RDF>

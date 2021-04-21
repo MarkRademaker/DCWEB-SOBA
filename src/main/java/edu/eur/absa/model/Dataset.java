@@ -126,7 +126,7 @@ public class Dataset {
 		String spanType = span.getType();
 		//rest of code
 		if (!spansByType.containsKey(spanType))
-			spansByType.put(spanType, new TreeSet<>());
+			spansByType.put(spanType, new TreeSet<Span>());
 		spansByType.get(spanType).add(span);
 		
 		if (!spansByTextualUnit.containsKey(span.getTextualUnit()))

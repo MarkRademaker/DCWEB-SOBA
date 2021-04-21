@@ -301,7 +301,7 @@ public class ReasoningOntology implements IOntology {
 	 */
 	public HashSet<String> getSuperclasses(String classURI){
 		if (!superclasses.containsKey(classURI)){
-			superclasses.put(classURI, new HashSet<>());
+			superclasses.put(classURI, new HashSet<String>());
 			superclasses.get(classURI).addAll(getObjects(classURI, "http://www.w3.org/2000/01/rdf-schema#subClassOf"));
 		}
 		if (superclasses.get(classURI) == null){

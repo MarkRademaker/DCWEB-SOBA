@@ -90,14 +90,14 @@ public class Relations {
 	public void addRelationToChild(Relation relationToChild){
 		String relType = relationToChild.getType();
 		if (!relationsToChildren.containsKey(relType))
-			relationsToChildren.put(relType, new TreeSet<>());
+			relationsToChildren.put(relType, new TreeSet<Relation>());
 		this.relationsToChildren.get(relType).add(relationToChild);
 	}
 	
 	public void addRelationToParent(Relation relationToParent){
 		String relType = relationToParent.getType();
 		if (!relationsToParents.containsKey(relType))
-			relationsToParents.put(relType, new TreeSet<>());
+			relationsToParents.put(relType, new TreeSet<Relation>());
 		this.relationsToParents.get(relType).add(relationToParent);
 	}
 }

@@ -38,8 +38,8 @@ public class Word2Vec {
 	private Scanner input;
 	private org.deeplearning4j.models.word2vec.Word2Vec w2vModel_yelp;
 	private org.deeplearning4j.models.word2vec.Word2Vec w2vModel_google;
-	
-	
+
+
 	public Word2Vec(String file, String w2v_loc, String google_loc) throws ClassNotFoundException, IOException {
 		textFile = new File(file);
 		word2vecFile = new File(w2v_loc);
@@ -49,19 +49,19 @@ public class Word2Vec {
 		//read_word2vec_google(word2vecGoogle);
 		//create_wordvec_yelp();
 		//create_wordvec_google();
-		
+
 	}
 	// convert to hashmap reader DONE
 	public void readFile(File textFile) throws ClassNotFoundException, IOException {
-	    FileInputStream fis=new FileInputStream(textFile);
-	    ObjectInputStream ois=new ObjectInputStream(fis);
-        AllTerms =(Map<String, String>) ois.readObject();
+		FileInputStream fis=new FileInputStream(textFile);
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		AllTerms =(Map<String, String>) ois.readObject();
 
-        ois.close();
-        fis.close();	
+		ois.close();
+		fis.close();	
 
 	}
-	
+ 
 	public void read_word2vec(File word2vecFile) throws FileNotFoundException{
 		System.out.println("reading yelp word2vec..");
 
@@ -69,69 +69,71 @@ public class Word2Vec {
 		System.out.println(w2vModel_yelp.similarity("food", "cuisine"));
 
 	}
-	
+
 	public void read_word2vec_google(File word2vecGoogle) {
 		System.out.println("Reading google word2vec..");
 
 		w2vModel_google  = WordVectorSerializer.readWord2VecModel(word2vecGoogle);
 		System.out.println(w2vModel_google.similarity("food", "cuisine"));
-		
+
 	}
-	
+
 	// convert to hashset iterator DONE (TEST IT THOUGH)
 	public void create_wordvec_google() {
 		System.out.println("Creating google word2vec..");
 		for (Map.Entry<String, String> entry : AllTerms.entrySet()) {
-		    if (w2vModel_google.getWordVector(entry.getKey()) != null){
-		    	word_vec_google.put(entry.getKey(), w2vModel_google.getWordVector(entry.getKey()));
-		    }
+			if (w2vModel_google.getWordVector(entry.getKey()) != null){
+				word_vec_google.put(entry.getKey(), w2vModel_google.getWordVector(entry.getKey()));
+			}
 		}
 		/*
-			 * for( String word2 : AllTerms) { if (w2vModel_google.getWordVector(word2) !=
-			 * null) { word_vec_google.put(word2, w2vModel_google.getWordVector(word2)); } }
-			 */
+		 * for( String word2 : AllTerms) { if (w2vModel_google.getWordVector(word2) !=
+		 * null) { word_vec_google.put(word2, w2vModel_google.getWordVector(word2)); } }
+		 */
 	}
 	// conver to hashset iterator DONE (TEST IT )
 	public void create_wordvec_yelp() {		
 		System.out.println("Creating yelp word2vec..");
 		for (Map.Entry<String, String> entry : AllTerms.entrySet()) {
-		    if (w2vModel_yelp.getWordVector(entry.getKey()) != null){
-		    	word_vec_yelp.put(entry.getKey(), w2vModel_yelp.getWordVector(entry.getKey()));
-		    }
+			if (w2vModel_yelp.getWordVector(entry.getKey()) != null){
+				word_vec_yelp.put(entry.getKey(), w2vModel_yelp.getWordVector(entry.getKey()));
+			}
 		}
-		
-		/*
-		 * for(String word : AllTerms) { //double[] wordVector =
-		 * w2vModel_yelp.getWordVector("myword"); //System.out.println(wordVector); if
-		 * (w2vModel_yelp.getWordVector(word) != null){ word_vec_yelp.put(word,
-		 * w2vModel_yelp.getWordVector(word)); } }
-		 */
+
+
+		for(String word : AllTerms.values()) { 
+			double[] wordVector = w2vModel_yelp.getWordVector(word); 
+			System.out.println(wordVector); 
+			if(w2vModel_yelp.getWordVector(word) != null){ 
+				word_vec_yelp.put(word, w2vModel_yelp.getWordVector(word)); }
+			}
+
 	}
 
-	
+
 	public void save_to_file(Map<String,double[]> word_vec, String filelocation) {
 		System.out.println("saving file..");
-	    try {
-	        File fileOne=new File(filelocation);
-	        FileOutputStream fos=new FileOutputStream(fileOne);
-	        ObjectOutputStream oos=new ObjectOutputStream(fos);
+		try {
+			File fileOne=new File(filelocation);
+			FileOutputStream fos=new FileOutputStream(fileOne);
+			ObjectOutputStream oos=new ObjectOutputStream(fos);
 
-	        oos.writeObject(word_vec);
-	        oos.flush();
-	        oos.close();
-	        fos.close();
-	    } catch(Exception e) {}
+			oos.writeObject(word_vec);
+			oos.flush();
+			oos.close();
+			fos.close();
+		} catch(Exception e) {}
 	}
-	
+
 	public Map<String,double[]> get_vec_google() {
 		return word_vec_google;
 	}
-	
+
 	public Map<String,double[]> get_vec_yelp() {
 		return word_vec_yelp;
 	}
-	
-	
+
+
 	// replace filelocation when done running
 	public static void main(String args[]) throws IOException, ClassNotFoundException{
 		Word2Vec w2v_model = new Word2Vec(Framework.OUTPUT_PATH + "Output_stanford_hashmap", Framework.DATA_PATH + "w2v_yelp.bin", Framework.EXTERNALDATA_PATH + "word2vec-google-news-300.gz");
@@ -139,5 +141,5 @@ public class Word2Vec {
 		//w2v_model.save_to_file(w2v_model.get_vec_google(), "E:\\google_wordvec");
 
 	}
-	
+
 }

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package corpusLoader;
 
 import java.io.File;
@@ -14,18 +11,24 @@ import java.io.ObjectOutputStream;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Random;
+
+import org.jfree.data.json.impl.JSONObject;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonStreamParser;
 
 import edu.eur.absa.Framework;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import net.arnx.jsonic.JSONException;
 
 
 
@@ -37,9 +40,11 @@ public class MyCorpus{
 	private String filelocation_business;
 	private List<String> restaurants = new ArrayList<String>();
 	private Map<String, String> allTerms = new HashMap<String, String>();
-	
+	private String training_data_review;
+	private String contrasting_data_review;
 	
 	public MyCorpus(String filelocation_review, String filelocation_business) {
+
 		this.filelocation_review = filelocation_review;
 		this.filelocation_business = filelocation_business;
 		
@@ -79,12 +84,14 @@ public class MyCorpus{
 		Reader r_r = new InputStreamReader(is_r, "UTF-8");
 		Gson gson_r = new GsonBuilder().create();
 		JsonStreamParser p = new JsonStreamParser(r_r);
-		while (p.hasNext()) {
-			counter += 1;
+
+		while (p.hasNext() && counter < 100000) {
+			counter++;
 			JsonElement e = p.next();
 			if (e.isJsonObject()) {
-				Review review = gson_r.fromJson(e, Review.class);
+				review review = gson_r.fromJson(e, review.class);
 				if (restaurants.contains(review.get_id())) {
+					counter++; 
 					Map<String, String> review_terms = review.stanford_pipeline_tagger(pipeline, pattern);
 					allTerms.putAll(review_terms);
 					System.out.println("size:" + allTerms.size() + "reviews processed: " + counter);				
@@ -92,12 +99,98 @@ public class MyCorpus{
 				}
 			}
 		}
+	/**
+	 * Creates domain specific data from full data set
+	 * @throws FileNotFoundException
+	 * @throws UnsupportedEncodingException
+	 */
+	public void getDomainTrainingData() throws FileNotFoundException, UnsupportedEncodingException {
+		int counterRest = 0;
+		int counterContr = 0;
+		int counterProc = 0;
+		training_data_review = "";
+	    String pattern ="[\\p{Punct}&&[^@',&]]";
+		Properties props = new Properties();
+	    // set the list of annotators to run
+	    props.setProperty("annotators", "tokenize,ssplit,pos,lemma");
+	    // set a property for an annotator, in this case the coref annotator is being
+	    // build pipeline
+	    //StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+		//MaxentTagger tagger = new MaxentTagger(filelocation_pos);
+		InputStream is_r = new FileInputStream(filelocation_review);
+		Reader r_r = new InputStreamReader(is_r, "UTF-8");
+		Gson gson_r = new GsonBuilder().create();
+		JsonStreamParser p = new JsonStreamParser(r_r);
+		long startTime = System.currentTimeMillis();
+		int fileCountContr = 1 ;
+		int fileCountRest = 1 ;
+		int sentiment;
+		boolean contrast = false;
+		boolean restaurant = false; 
+			while (p.hasNext()) {
+				JsonElement e = p.next();
+				if (e.isJsonObject()) {
+					review review = gson_r.fromJson(e, review.class);
+					if (restaurants.contains(review.get_id())){
+								
+							training_data_review = training_data_review + ",|," + review.get_text();
+							counterRest++;	
+						}	
+			
+					if((counterRest%100000 == 0)) {
+						System.out.println("File restaurant reviews: " + fileCountRest);
+						domain_file("restData100k");
+						break;
+					}
+			}
+		}
+		System.out.println("Restaurant reviews :"+counterRest);
+		System.out.println("total:"+counterProc);
+		long elapsedTime = System.currentTimeMillis() - startTime;
+		long elapsedSeconds = elapsedTime / 1000;
+		long MinutesDisplay = elapsedSeconds / 60;
+	}
+	private char[] restaurant(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	/**
+	 * Writes file containing domain specific data for training of BERT model
+	 */
+	public void domain_file(String fileName) {
+		System.out.println("saving file..");
+		JsonObject jsonObject = new JsonObject();
+	    try {
+	        File fileOne=new File(fileName);
+	        FileOutputStream fos=new FileOutputStream(fileOne);
+	        ObjectOutputStream oos=new ObjectOutputStream(fos);
+
+	        oos.writeObject(training_data_review.toString());
+	        oos.flush();
+	        oos.close();
+	        fos.close();
+	    } catch(Exception e) {}
+	}
+	public void contrasting_file(String fileName) {
+		System.out.println("saving file..");
+		JsonObject jsonObject = new JsonObject();
+	    try {
+	        File fileOne=new File(fileName);
+	        FileOutputStream fos=new FileOutputStream(fileOne);
+	        ObjectOutputStream oos=new ObjectOutputStream(fos);
+
+	        oos.writeObject(contrasting_data_review.toString());
+	        oos.flush();
+	        oos.close();
+	        fos.close();
+	    } catch(Exception e) {}
+	}
 	
 		/*
 		 * public void review_loader_own() throws FileNotFoundException,
 		 * UnsupportedEncodingException { String[] needed_tags = {"VB","VBD", "VBG",
 		 * "VBN","VBP","VBZ","VH","VHD","VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN",
-		 * "VVP","VVZ","JJ","JJR","JJS","NN","NNS","NP","NPS" }; ArrayList<String>
+		 * "VVP","VVZ","JJ","JJR","JJS","NN","NNS","NP","NPS","RB","RBR","RBS"}; ArrayList<String>
 		 * needed_tags_l = new ArrayList<String>(Arrays.asList(needed_tags)); int
 		 * counter = 0; MaxentTagger tagger = new MaxentTagger(filelocation_pos);
 		 * InputStream is_r = new FileInputStream(filelocation_review); Reader r_r = new
@@ -118,7 +211,7 @@ public class MyCorpus{
 	public void write_to_file() {
 		System.out.println("saving file..");
 	    try {
-	        File fileOne=new File("E:\\OutputTerms\\Output_stanford_hashmap");
+	    	File fileOne=new File( Framework.OUTPUT_PATH + "Output_stanford_hashmap");
 	        FileOutputStream fos=new FileOutputStream(fileOne);
 	        ObjectOutputStream oos=new ObjectOutputStream(fos);
 
@@ -133,11 +226,12 @@ public class MyCorpus{
 	public static void main(String args[]) throws IOException {
 		// WHEN YOU RUN THE FILE you need to add review.json and business.json to the external data directory!
 		Framework framework = new Framework();
-		MyCorpus yelp_dataset = new MyCorpus("E:\\review.json", "E:\\business.json");
+		MyCorpus yelp_dataset = new MyCorpus(Framework.EXTERNALDATA_PATH + "review.json", Framework.EXTERNALDATA_PATH + "business.json");
 		List<String> restaurants = yelp_dataset.business_identifier();
 		yelp_dataset.review_loader();
 		yelp_dataset.write_to_file();
-		System.out.println(yelp_dataset.allTerms);
-			}
+		yelp_dataset.getDomainTrainingData();
+
+		}
 	
 }

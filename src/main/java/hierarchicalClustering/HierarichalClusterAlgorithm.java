@@ -46,10 +46,15 @@ public class HierarichalClusterAlgorithm {
 
 	private String[] terms;
 	private Map<String, double[]> word_vec_yelp = new HashMap<String, double[]>();
+	private Map<String, Map<double[], double[]>> finalMap = new HashMap<>(); 
 
 	public HierarichalClusterAlgorithm(String filelocation_yelp, String filelocation_aspects, String[] terms) throws ClassNotFoundException, IOException {
 		this.terms = terms;
-		read_file_wordvec("yelp", filelocation_yelp);
+		read_file_wordvec("finalMap", filelocation_yelp);
+		for(Map.Entry<String, Map<double[], double[]>> entry : finalMap.entrySet()) {
+			Map.Entry<double[], double[]> entry2 = finalMap.get(entry.getKey()).entrySet().iterator().next(); 
+			word_vec_yelp.put(entry.getKey(), entry2.getKey()); 
+		}
 		read_file(filelocation_aspects);
 		create_aspect_wordvec();
 		create_wordvec_aspect();
@@ -61,11 +66,11 @@ public class HierarichalClusterAlgorithm {
 	}
 
 	public void read_file_wordvec(String dataset, String filelocation) throws IOException, ClassNotFoundException {
-		if (dataset == "yelp") {
+		if (dataset == "finalMap") {
 			File toRead_yelp=new File(filelocation);
 			FileInputStream fis_yelp=new FileInputStream(toRead_yelp);
 			ObjectInputStream ois_yelp =new ObjectInputStream(fis_yelp);
-			word_vec_yelp =(HashMap<String,double[]>)ois_yelp.readObject();
+			finalMap =(HashMap<String,Map<double[], double[]>>)ois_yelp.readObject();
 			ois_yelp.close();
 			fis_yelp.close();	
 		}
@@ -157,7 +162,6 @@ public class HierarichalClusterAlgorithm {
 			}
 		}
 		return vector_list;
-
 	}
 
 
@@ -382,7 +386,7 @@ public class HierarichalClusterAlgorithm {
 
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		String[] mentionclasses = {"staff", "communication", "communications", "experiences", "interactions", "interaction", "attitude", "attitudes", "waitstaff", "services"};
-		HierarichalClusterAlgorithm test = new HierarichalClusterAlgorithm(Framework.DATA_PATH + "yelp_wordvec",  Framework.OUTPUT_PATH + "aspect_mentions", mentionclasses);
+		HierarichalClusterAlgorithm test = new HierarichalClusterAlgorithm(Framework.OUTPUT_PATH + "finalMap2",  Framework.OUTPUT_PATH + "aspect_mentions", mentionclasses);
 		ClusteringAlgorithm alg = new DefaultClusteringAlgorithm();
 
 		String[] terms = test.terms;
@@ -395,8 +399,8 @@ public class HierarichalClusterAlgorithm {
 
 		Cluster cluster = alg.performClustering(distances, terms, new AverageLinkageStrategy());
 		int recursion = test.recursion_depth(cluster);
-		test.rename_subclusters(14, 0, cluster);
-		test.create_cluster_representation(cluster, 0, 14);
+		test.rename_subclusters(1, 0, cluster);
+		test.create_cluster_representation(cluster, 0, 1);
 		test.parent_child_printer(cluster, 0, 3);
 		System.out.println(test.cluster_representation);
 		test.elbow_method(recursion, cluster );
