@@ -7,3 +7,11 @@ Creating word embeddings
    1. Create word embeddings using bert-base-uncased model from the huggingface library, the code is given under the file name : wordEmbeddingCode.ipynb
    2. Create sentiment-aware word embeddings by first training the bert-base-uncased model on sequence classification using BertforSequenceClassification, the weights obtained can be implemented thereafter in a bert model to create word embeddings with the trained model, the code is given under the file name : BertFineTunedModel.ipynb.
 
+Ontology
+
+Our method DCWEB-SOBA is related to the following papers:
+- Haaf,  F.t.,  Claassen,  C.,  Enschauzier,  R.,  Tjan,  J.,  Buijs,  D.,  Frasincar,  F.,Schouten,  K.:  WEB-SOBA:  Word  embeddings-based  semi-automatic  ontologybuilding for aspect-based sentiment classification. In: 18th Extended Semantic WebConference (ESWC 2021). LNCS, Springer (to appear) (2021)
+- Dera, E., Frasincar, F., Schouten, K., Zhuang, L.: Sasobus: Semi-automatic sentiment domain ontology building using synsets. In: European Semantic Web Conference. pp. 105–120. Springer (2020)
+- Schouten, K., Frasincar, F.: Ontology-driven sentiment analysis of product and service aspects. In: 15th Extended Semantic Web Conference (ESWC 2018). LNCS, vol. 10843, pp. 608–623. Springer (2018)
+- Wallaart, O., Frasincar, F.: A hybrid approach for aspect-based sentiment analysis using a lexicalized domain ontology and attentional neural models. In: 16th Extended Semantic Web Conference (ESWC 2019). LNCS, vol. 11503, pp. 363–378. Springer (2019)
+Zhuang, L., Schouten, K., Frasincar, F.: Soba: Semi-automated ontology builder for aspect-based sentiment analysis. Journal of Web Semantics 60, 100–544 (2020)
