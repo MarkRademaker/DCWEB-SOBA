@@ -6,11 +6,12 @@ In this github we provide the codes necessary to construct an ontology from the 
 Creating word embeddings
    1. Create word embeddings using bert-base-uncased model from the huggingface library, the code is given under the file name : wordEmbeddingCode.ipynb
    2. Create sentiment-aware word embeddings by first training the bert-base-uncased model on sequence classification using BertforSequenceClassification, the weights obtained can be implemented thereafter in a bert model to create word embeddings with the trained model, the code is given under the file name : BertFineTunedModel.ipynb
-   3. A 2-dimensional represntation of the vectors can be obtained by using the t-SNE code : VisualizationT_SNE.ipynb
+   3. A 2-dimensional representation of the vectors can be obtained by using the t-SNE code : VisualizationT_SNE.ipynb
    4. The Sem-Eval dataset used for evaluation is a XML file, these reviews can be transformed into word embeddings using the code in : XMLVectorsBERT.ipynb
 
 
 Ontology
+Load the data in TermSelectionAlgo and create the map with finetuned and pre trained vectors. This is done with several methods that only work with the format of the bert word embeddings. After the map is saved, un-bracket the other code in the constructor to work with this map and perform the term selection. 
 
 The ontology obtained from DCWEB-SOBA can be used in aspect-based sentiment classification (ABSA). We recommend the following frameworks for evaluation: Heracles and HAABSA++. Heracles is more user friendy, whereas HAABSA++ provides better results.
 
