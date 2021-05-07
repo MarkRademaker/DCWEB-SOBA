@@ -7,7 +7,12 @@ Creating word embeddings
    1. Create word embeddings using bert-base-uncased model from the huggingface library, the code is given under the file name : wordEmbeddingCode.ipynb
    2. Create sentiment-aware word embeddings by first training the bert-base-uncased model on sequence classification using BertforSequenceClassification, the weights obtained can be implemented thereafter in a bert model to create word embeddings with the trained model, the code is given under the file name : BertFineTunedModel.ipynb.
 
+
 Ontology
+
+The ontology obtained from DCWEB-SOBA can be used in aspect-based sentiment classification (ABSA). We recommend the following frameworks for evaluation: Heracles and HAABSA++. Heracles is more user friendy, whereas HAABSA++ provides better results.
+
+The ontology was built using the Yelp dataset on restaurant reviews(https://www.yelp.com/dataset)
 
 Our method DCWEB-SOBA is related to the following papers:
 - Haaf,  F.t.,  Claassen,  C.,  Enschauzier,  R.,  Tjan,  J.,  Buijs,  D.,  Frasincar,  F.,Schouten,  K.:  WEB-SOBA:  Word  embeddings-based  semi-automatic  ontologybuilding for aspect-based sentiment classification. In: 18th Extended Semantic WebConference (ESWC 2021). LNCS, Springer (to appear) (2021)
